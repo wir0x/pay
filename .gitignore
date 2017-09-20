@@ -1,0 +1,6 @@
+.idea
+target
+*.iml
+**/*.DS_Store
+src/main/java/ch/swissbytes/ewallet/tigomoney/wsimport/
+logs

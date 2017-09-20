@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="ewallet-api" packages="">
+    <Properties>
+        <Property name="log-path">logs</Property>
+        <Property name="default-pattern">%d %-5p [%t] %C{2} (%F:%L) - %m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="${default-pattern}"/>
+        </Console>
+
+        <RollingFile name="FILE" fileName="logs/ewallet-api.log"
+                     filePattern="logs/ewallet-api-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="${default-pattern}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1 KB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="4"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <appenderRef ref="FILE" level="debug"/>
+            <AppenderRef ref="CONSOLE" level="debug"/>
+        </Root>
+    </Loggers>
+</Configuration>
